@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- la palabra defer es para poner el script al final -->
+    <!-- <script src="//unpkg.com/alpinejs" defer></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.8.2/alpine-ie11.min.js"></script>
+    <style>
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- xdata es para inicializar alpien -->
+    <!-- x-init es para que se desencadene la accion al cargarse  -->
+    <div x-data="data()" x-init="start()">
+      <!-- x-bind:disable el disable es un atributo, dependera del valor que le demos para que este atributo funcione o no -->
+      <!-- x-bind-disable es lo mismo que :disabled  y x-on:click es lo mismo que @click -->
+      <button :disabled="open" @click="isOpen()">Menu</button>
+
+      <nav class="hidden" :class="{'hidden': !open}" @click.away="close()">
+        <ul>
+          <li>Item 1</li>
+          <li>Item 2</li>
+          <li>Item 3</li>
+          <li>Item 4</li>
+        </ul>
+      </nav>
+    </div>
+
+    <script>
+      function data() {
+        return {
+          open: null,
+          start() {
+            this.open = false
+          },
+          isOpen() {
+            this.open = !this.open
+          },
+          close() {
+            this.open = false
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

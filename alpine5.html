@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- la palabra defer es para poner el script al final -->
+    <!-- <script src="//unpkg.com/alpinejs" defer></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.8.2/alpine-ie11.min.js"></script>
+  </head>
+  <body>
+    <!-- aqui veremos dos directivas x-for para iterar array e imprimir y la directiva x-if sirve para mostrar u ocular siempre y cuando el if devuelva un true -->
+    <div x-data="data()">
+      <!-- vamos a iterar en un ul -->
+      <ul>
+          <template x-for="product in products">
+            <li>
+                <span x-text="product"></span>
+            </li>
+          </template>
+      </ul>
+    </div>
+
+    <script>
+      function data() {
+        //le pedimos que nos retorne un objeto
+        return {
+          // definimos propiedad del objeto
+          // un array por ejemplo
+          products: ["Pantalon", "Camisa", "Camiseta", "Zapatilla"],
+        };
+      }
+    </script>
+  </body>
+</html>

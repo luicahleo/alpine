@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- la palabra defer es para poner el script al final -->
+    <!-- <script src="//unpkg.com/alpinejs" defer></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.8.2/alpine-ie11.min.js"></script>
+  </head>
+  <body>
+
+<!-- sincronizaremos un input para enviarlo al pulsar un boton de enviar -->
+<!-- inicializamos la variable mensaje -->
+    <div class="" x-data="{mensaje: null}">
+<!-- lo que escriba en el input que lo guarde en la variable mensaje -->
+        <input type="text" x-model="mensaje">
+<!-- cuando demos al boton enviar que ejecute el evento hacieno referencia a x-ref de la variable msj y grabando lo que tenga de la variable mensaje en el <p ref="msj"> -->
+        <button @click="$refs.msj.innerText=mensaje">Enviar</button>
+        <!-- identificamos a la etiqueta <p> -->
+        <p x-ref="msj"></p>
+
+    </div>
+
+
+  </body>
+</html>
