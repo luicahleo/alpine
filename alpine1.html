@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="//unpkg.com/alpinejs" defer></script>
+
+</head>
+
+<body>
+
+
+<!-- inicializamos alpine, tiene que estar dentro de un div, es como si fuera un componente de livewire -->
+<!-- la variable solo funciona a nivel del div -->
+<div x-data="{ open: false }">
+    <!-- le damos un evento al boton -->
+    <button x-on:click="open=!open">
+        Menu
+    </button>
+
+
+
+<!-- x-show, muestra u oculta -->
+<!-- agrego x on click.away para ocultar el menu cuando click fuera del menu -->
+    <nav x-show="open" x-on:click.away="open=false">
+        <ul>
+            <li>Item1</li>
+            <li>Item2</li>
+            <li>Item3</li>
+            <li>Item4</li>
+            
+        </ul>
+    </nav>
+</div>
+
+
+
+</body>
+
+</html>

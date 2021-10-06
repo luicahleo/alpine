@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="//unpkg.com/alpinejs" defer></script>
+
+</head>
+
+
+
+<!-- este capitulo sacaremos toda la logica y lo pondremos en un script -->
+
+<body>
+
+
+<!-- x-init="accion que quiero se se desencadene ni bien se cargue el componente" -->
+    <div x-data="data()" x-init="start()"> 
+        <button x-on:click="isOpen()">
+            Menu
+        </button>
+
+
+
+
+        <nav x-show="open" x-on:click.away="close()">
+            <ul>
+                <li>Item1</li>
+                <li>Item2</li>
+                <li>Item3</li>
+                <li>Item4</li>
+
+            </ul>
+        </nav>
+    </div>
+
+
+
+</body>
+<script>
+    function data(){
+        return {
+            open: null,
+            start(){
+                this.open = false;
+            },
+            isOpen(){
+                this.open = !this.open
+            },
+            close(){
+                this.open = false
+            }
+        }
+    }
+</script>
+</html>
